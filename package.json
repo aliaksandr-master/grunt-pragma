@@ -1,0 +1,30 @@
+{
+  "name": "grunt-pragma",
+  "version": "1.1.1",
+  "description": "gruntplugin for create modular macroses, that prepare source files",
+  "main": "tasks/index.js",
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://aliaksandr-pasynkau@github.com/aliaksandr-pasynkau/grunt-pragma.git"
+  },
+  "keywords": [
+    "gruntplugin",
+    "pragma",
+    "macros",
+    "conditions",
+    "grunt"
+  ],
+  "author": "aliaksandr-pasynkau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aliaksandr-pasynkau/grunt-pragma/issues"
+  },
+  "homepage": "https://github.com/aliaksandr-pasynkau/grunt-pragma"
+}
