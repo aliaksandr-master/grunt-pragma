@@ -18,17 +18,17 @@ module.exports = function (grunt) {
 			'.tmp'
 		],
 
-		excel_vocabulary: {
-			convert: {
-				expand: true,
-				cwd: 'examples',
-				dest: '.tmp',
-				ext: '.json',
-				src: [
-					'**/*.xlsx'
-				]
-			}
-		},
+		//pragma: {
+		//	convert: {
+		//		expand: true,
+		//		cwd: 'examples',
+		//		dest: '.tmp',
+		//		ext: '.json',
+		//		src: [
+		//			'**/*.xlsx'
+		//		]
+		//	}
+		//},
 
 		nodeunit: {
 			tests: [ 'tests/*.js' ]
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 		'jshint',
 		'clean',
-		'excel_vocabulary',
+		//'pragma',
 		'nodeunit'
 	]);
 

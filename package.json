@@ -14,6 +14,24 @@
     "type": "git",
     "url": "https://aliaksandr-pasynkau@github.com/aliaksandr-pasynkau/grunt-pragma.git"
   },
+  "dependencies": {
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "colors": "~1.0.3",
+    "coveralls": "~2.11.2",
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "jscoverage": "~0.5.9",
+    "nodeunit": "~0.9.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
   "keywords": [
     "gruntplugin",
     "pragma",
