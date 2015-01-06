@@ -5,7 +5,14 @@ var parse = require('./../lib/index');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask('pragma', function () {
-		var options = this.options({});
+		var options = this.options({
+			'if': function (params, inner, source) {
+				return this[params[0]] ? inner : '';
+			},
+			'unless': function (params, inner, source) {
+				return this[params[0]] ? '' : inner;
+			}
+		});
 
 		this.files.forEach(function (f) {
 			f.src.filter(function (filepath) {
