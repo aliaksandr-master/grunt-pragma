@@ -6,6 +6,7 @@ var parse = require('./../lib/index');
 module.exports = function (grunt) {
 	grunt.registerMultiTask('pragma', function () {
 		var options = this.options({
+			root: process.cwd(),
 			'if': function (params, inner, source) {
 				return this[params[0]] ? inner : '';
 			},
