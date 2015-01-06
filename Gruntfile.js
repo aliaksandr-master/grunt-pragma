@@ -18,17 +18,24 @@ module.exports = function (grunt) {
 			'.tmp'
 		],
 
-		//pragma: {
-		//	convert: {
-		//		expand: true,
-		//		cwd: 'examples',
-		//		dest: '.tmp',
-		//		ext: '.json',
-		//		src: [
-		//			'**/*.xlsx'
-		//		]
-		//	}
-		//},
+		pragma: {
+			options: {
+				world: function (params) {
+					return params.join('');
+				},
+				hello: function () {
+					return 'HELLO';
+				}
+			},
+			convert: {
+				expand: true,
+				cwd: 'examples',
+				dest: '.tmp',
+				src: [
+					'**/*.txt'
+				]
+			}
+		},
 
 		nodeunit: {
 			tests: [ 'tests/*.js' ]
@@ -55,7 +62,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 		'jshint',
 		'clean',
-		//'pragma',
+		'pragma',
 		'nodeunit'
 	]);
 
