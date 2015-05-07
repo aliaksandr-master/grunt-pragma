@@ -1,5 +1,4 @@
-
-"use strict";
+'use strict';
 
 var parse = require('./lib');
 
@@ -19,6 +18,7 @@ var contentWithBlockANdInlineTagResult = 'Lorem Ipsum HELLO is simply param1 tex
 module.exports['no tags'] = function (test) {
 	test.doesNotThrow(function () {
 		var parsedContent = parse(content, {});
+
 		test.equal(content, parsedContent);
 	});
 
@@ -28,6 +28,7 @@ module.exports['no tags'] = function (test) {
 module.exports['nothing to parse'] = function (test) {
 	test.doesNotThrow(function () {
 		var parsedContent = parse('', {});
+
 		test.equal('', parsedContent);
 	});
 	test.done();

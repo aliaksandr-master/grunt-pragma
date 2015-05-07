@@ -1,8 +1,7 @@
 'use strict';
 
-var path = require('path');
 var parse = require('./../lib/index');
-var process = require('grunt-process');
+var process = require('grunt-process/lib');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask('pragma', function () {
