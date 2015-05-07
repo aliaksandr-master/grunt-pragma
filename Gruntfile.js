@@ -10,7 +10,7 @@ module.exports = grunto(function (grunt) {
 	]);
 
 	grunt.registerTask('test', [
-		'jshint',
+		'eslint',
 		'clean',
 		'pragma',
 		'nodeunit'
@@ -19,16 +19,12 @@ module.exports = grunto(function (grunt) {
 	grunt.loadTasks('tasks');
 
 	return {
-		jshint: {
+		eslint: {
 			all: [
-				'Gruntfile.js',
-				'tasks/*.js',
-				'lib/*.js',
-				'<%= nodeunit.tests %>'
-			],
-			options: {
-				jshintrc: '.jshintrc'
-			}
+				'**/*.js',
+				'!lib-cov/**/*',
+				'!node_modules/**/*'
+			]
 		},
 
 		clean: [
