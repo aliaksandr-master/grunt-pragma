@@ -1,7 +1,24 @@
 'use strict';
 
-module.exports = function (grunt) {
-	grunt.initConfig({
+var grunto = require('grunto');
+
+module.exports = grunto(function (grunt) {
+
+	grunt.registerTask('default', [
+		'test',
+		'watch'
+	]);
+
+	grunt.registerTask('test', [
+		'jshint',
+		'clean',
+		'pragma',
+		'nodeunit'
+	]);
+
+	grunt.loadTasks('tasks');
+
+	return {
 		jshint: {
 			all: [
 				'Gruntfile.js',
@@ -38,7 +55,9 @@ module.exports = function (grunt) {
 		},
 
 		nodeunit: {
-			tests: [ 'tests/*.js' ]
+			tests: [
+				'tests/*.js'
+			]
 		},
 
 		watch: {
@@ -52,23 +71,5 @@ module.exports = function (grunt) {
 				'test'
 			]
 		}
-	});
-
-	grunt.registerTask('default', [
-		'test',
-		'watch'
-	]);
-
-	grunt.registerTask('test', [
-		'jshint',
-		'clean',
-		'pragma',
-		'nodeunit'
-	]);
-
-	grunt.loadTasks('tasks');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-nodeunit');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-};
+	};
+});
