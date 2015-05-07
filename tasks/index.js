@@ -2,34 +2,23 @@
 
 var path = require('path');
 var parse = require('./../lib/index');
+var process = require('grunt-process');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask('pragma', function () {
 		var options = this.options({
-			root: process.cwd(),
-			'if': function (params, inner, source) {
+			if: function (params, inner, source) {
 				return this[params[0]] ? inner : '';
 			},
-			'unless': function (params, inner, source) {
+			unless: function (params, inner, source) {
 				return this[params[0]] ? '' : inner;
 			}
 		});
 
-		this.files.forEach(function (f) {
-			f.src.filter(function (filepath) {
-				if (!grunt.file.exists(filepath)) {
-					grunt.log.warn('Source file "' + filepath + '" not found.');
-					return false;
-				}
-
-                return true;
-			}).forEach(function (srcFilePath) {
-				var content = grunt.file.read(path.resolve(options.root, srcFilePath));
-				var resultContent = parse(content, options);
-
-				grunt.file.write(f.dest, resultContent);
-				grunt.log.ok('File "' + f.dest.replace(process.cwd(), '') + '" .' + (f.dest === srcFilePath ? 'processed' : 'created'));
-			});
-		});
+		process(grunt, this.files, {
+			process: function (src, dest, content, fileObject) {
+				return parse(content, options);
+			}
+		}, this.async());
 	});
 };
